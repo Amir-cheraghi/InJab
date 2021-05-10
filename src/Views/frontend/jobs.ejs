@@ -1,0 +1,67 @@
+<div class="container-fluid ">
+  <!-- Post Content Column -->
+
+
+  <div class="row-cols-2 d-flex justify-content-end gap-4 h-100">
+
+    <div class="col-8 d-flex justify-content-start align-content-center flex-column h-100" >
+      <% if (data.length) { %>
+        <% data.forEach((item  , index)=> { %>
+        <div class="row">
+          <div class="col">
+            <div class="card my-4 h-75  w-100 shadow">
+              <h5 class="card-header text-right rtl"><a class="text-decoration-none text-body" href="/jobs/<%- item._id %>"><%- item.title %></a></h5>
+              <div class="card-body text-right rtl"><%- item.description %></div>
+              <div class="card-footer text-left rtl text-muted h6">
+                <div class="d-flex flex-row justify-content-between">
+                  <button type="button" class="btn btn-dark text-light h6"><a class="text-decoration-none text-light" href="/jobs/<%- item._id %>">دیدن آگهی</a></button>
+                  <div style="font-size: 12px;"> <%- date[index] %></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+    <% if (maxPage>1) { %>
+  <%- include('./partials/allJobPagenumber')  %> 
+    <% } %>
+
+    <% } else { %>
+      
+
+      <div class="card rounded-3 my-4">
+        <div class="card-header"></div>
+
+        <div class="card-body text-center">
+         <br><br><br><br> <br><br><br><br>محتوایی برای نمایش وجود ندارد<br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+      </div>
+    
+    <% } %>
+</div>
+
+<!-- Filters -->
+  <div class="col-3 d-flex justify-content-end align-content-center h-auto">
+    <div class="card my-4  w-100 shadow">
+      <h5 class="card-header text-center rtl fw-bold">فیلترها</h5>
+
+      <div class="card-body text-center rtl">
+
+          <form class=" col col-12 mt-3 rtl d-flex flex-column border-bottom border-secondary pb-4 mb-4" action="/jobs" method="GET">
+            <input type="text" name="text[search]" id="text" class="form-control form-control-dark text-center " placeholder="متن مورد نظر"/>
+            <button type="submit" class="form-control bg-dark text-light mt-3">جستجو</button>            
+          </form>
+          
+          <form action="/jobs" method="get">
+            <%- include('./partials/filter')  %> 
+            <button type="submit" class="form-control bg-dark text-light mt-3">اعمال</button>            
+          </form>
+      </div>
+      <div class="card-footer text-left rtl text-muted h6"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+  

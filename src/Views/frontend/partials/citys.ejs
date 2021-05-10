@@ -1,0 +1,23 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">شهر</label>
+  </div>
+  <select name="city" class="custom-select rtl" id="city" >
+    <% if (data.city && data.city.length==0) { %> 
+      <option selected disabled> لطفا شهر خود را انتخاب کنید :
+        <% } else { %>
+      <option disabled> لطفا شهر خود را انتخاب کنید    :
+    <% } %>  
+  </option>
+  
+    <% citys.forEach(el => { %>
+      
+      <% if (el === data.city) { %>
+        <option selected value="<%- el %>"><%- el %>
+      <% } else { %>
+      <option value="<%- el %>"><%- el %> 
+        <% } %>
+
+    <% }) %>
+  </select>
+</div>

@@ -1,0 +1,222 @@
+<link rel="stylesheet" href="/css/style.css" />
+<div class="layout-content">
+          <!-- Content -->
+          <div class="container flex-grow-1 container-p-y">
+
+            <!-- Header -->
+            <div class="container-m-nx container-m-ny theme-bg-white mb-4 rtl shadow">
+
+
+              <!-- Message -->
+              <%- include('./partials/message')  %> 
+              <!-- /Message -->
+              
+              <div class="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto rtl">
+                
+                <img src=" <%- data.avatar%> " alt="آواتار" id="avatar" class="d-block ui-w-100  rounded-circle rtl ml-5">
+                <div class="media-body ml-5 rtl">
+                  <h4 class="font-weight-bold mb-4 m-3 text-right rtl"><%- data.name || data.username %> </h4>
+
+                  <div class="text-muted mb-4 text-right rtl">
+                    <%- data.descrption || 'توضیحاتی ارائه نشده است .' %> 
+                  </div>
+                </div>
+              </div>
+              <hr class="m-0">
+            </div>
+            <!-- Header -->
+            
+                <!-- Info -->
+            <div class="row">
+              <div class="col">
+                <div class="card mb-4 shadow">
+                  <div class="card-body text-right">
+
+                    <!-- <div class="row mb-2">
+                      <div class="col-md text-muted rtl">تاریخ تولد : </div>
+                    </div> -->
+
+                    <div class="row mb-2">
+                      <div class="col-md text-muted rtl">شهر : <%- data.city || 'شهری انتخاب نشده است .' %>  </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col-md text-muted rtl">زبان ها : <%- data.language || 'زبان دیگری انتخاب نشده است .'%></div>
+                    </div>
+
+                    <h6 class="my-3">راه های ارتباطی</h6>
+
+                    <div class="row mb-2">
+                      <div class="col-md text-muted rtl">تلفن : <%- data.phone || 'تلفنی جهت ارتباط ارائه نشده است .'%></div>
+                    </div>
+
+                    <h6 class="my-3">علاقه مندی ها </h6>
+
+                    <div class="row mb-2">
+                      <div class="col-md text-muted rtl">فعالیت های مورد علاقه : 
+                        <% if (data.interest.length!=0) { %>
+                          <% data.interest.forEach(item => { %>
+                            <% if (item.length!=0) { %>
+                             <%- item %> -
+                            <% } %>
+                           
+                          <% }) %> 
+                          <% } else { %>
+                           فعالیتی ارائه نشده است .
+                        <% } %>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col-md text-muted rtl">سوابق کاری : 
+                        <% if (data.resume.length!=0) { %>
+                         <% data.resume.forEach(item => { %>
+                          <% if (item.length!=0) { %>
+                           <%- item %> -
+                          <% } %>
+                        <% }) %> 
+                        <% } else { %>
+                         رزومه و سابقه فعالیتی ارائه نشده است .
+                        <% } %>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- / Info -->
+
+
+                <!-- Edit Info -->
+                <% if (edit===true) { %>
+                  <form class="float-right" action="/editinformation" method="get">
+                    <button type="submit" class="btn btn-warning text-dark mb-3">ویرایش اطلاعات</a>
+                  </form>
+                  <!-- /Edit Info -->
+
+                  
+                  <!-- Delete Account -->
+                  <button type="button"  class="btn btn-danger mb-3 mr-3" data-toggle="modal" data-target="#confrim">حذف حساب کاربری</a></button>
+                    <!-- Confrim -->
+                <div class="modal fade" id="confrim" tabindex="-1" role="dialog" aria-labelledby="confrimtitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-dark text-right" id="confrimtitle">حذف حساب کاربری </h5>
+                        <button type="button"  class="close rtl" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body text-dark text-right">
+                        شما در حال حذف حساب کاربری خود هستید ، این عمل بازگشت ناپذیر است آیا از حذف حساب کاربری خود مطمئن هستید ؟؟
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="deleteAccount" class="btn btn-danger">حذف</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Confrim -->
+                <!-- Delete Account -->
+
+
+                <!-- Delete Avatar -->
+                    <% if (data.avatar != "/uploads/user/default/Default-Profile.png") { %>
+                     <button type="button" id="delAvatar" class="btn btn-danger mb-3">حذف آواتار</a>
+                    <% } %>
+                <% } %>
+               <!-- /Delete Avatar -->
+
+                
+
+              </div>
+              <div class="col-xl-4 rtl">
+
+                <!-- Side info -->
+                <div class="card mb-4 shadow">
+                  
+                  <div class="card-header text-right rtl">
+                    مهارت ها 
+                  </div>
+                  <div class="card-body text-right rtl">
+                       <% if ( data.skills.length!=0 ) { %>
+                    <% data.skills.forEach(item => { %>
+                      <a class="d-block text-body mb-2 text-decoration-none">
+                        <%- item%>
+                      </a>
+                    <% }) %>
+                    <% } else { %>
+                      مهارتی تعریف نشده است .
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="card mb-4 shadow">
+                  <div class="card-header text-right rtl">
+                    شبکه های اجتماعی
+                  </div>
+                    
+                      <div class="card-body text-right row rtl">
+
+                        <a href="https://<%- data.website%>" class=" col d-block text-body mb-2 text-decoration-none text-center">
+                          <i class="fa fa-user d-block h1" style="color: #0f23d3;"></i>
+                        </a>
+
+                        <a href="https://github.com/<%- data.github%>" class=" col d-block text-body mb-2 text-decoration-none text-center">
+                          <i class="fab fa-github d-block h1"></i>  
+                        </a>
+                                                
+                        <a href="https://twitter.com/<%- data.twitter%>" class="col d-block text-body mb-2 text-decoration-none text-center">
+                          <i class="fab fa-twitter d-block h1" style="color:  #1da1f2;"></i>
+                        </a>
+                        
+                        <a href="https://instagram.com/<%- data.instagram%>" class="col d-block text-body mb-2 text-decoration-none text-center">
+                          <i class="fab fa-instagram d-block h1" 
+                          style="background:-webkit-linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+                          -webkit-background-clip: text;
+                          -webkit-text-fill-color: transparent;
+                          "></i>
+                        </a>
+
+                      </div>
+                    
+                </div>
+                <!-- / Side info -->
+
+                <!-- Skills -->
+                <div class="card mb-4 rtl shadow">
+                  <div class="card-header text-right rtl">میزان مهارت</div>
+                  <div class="card-body text-right rtl">
+
+
+                    <% if (data.skills.length!=0) { %>
+                     <% for( let i = 0; i < data.skills.length; i++ ) { %>
+                      <% if (data.skills[i].length!=0) { %>
+                        <div class="mb-1"> <%- data.skills[i] %>  <small class="text-muted"><%- data.skillpersent[i] %>%</small></div>
+                        <div class="progress mb-3" style="height: 8px;">
+                          <div class="progress-bar bg-<%- data.color[i] %> progress-bar-striped progress-bar-animated" style="width:<%- data.skillpersent[i]%>% ;"  ></div>
+                        </div>
+                      <% } %>
+                    <% } %>
+                    <% } else { %>
+                     مهارتی تعریف نشده است .
+                    <% } %>
+                    
+                    
+
+                    
+
+                  </div>
+                  <a class="card-footer d-block text-center text-body small font-weight-semibold"></a>
+                </div>
+                <!-- / Skills -->
+
+                
+              </div>
+            </div>
+
+          </div>
+          <!-- / Content -->
+        </div>
+        <script src="/js/profile.js"></script>

@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="/css/style.css" />
+<div class="layout-content">
+  <!-- Content -->
+  <div class="container flex-grow-1 container-p-y">
+
+    <div class="row">
+      <div class="col">
+
+        <!-- Meeage -->
+        <%- include('./partials/message') %>
+        <!--Message  -->
+
+        <!-- Info -->
+        <div class="card mb-4 ">
+
+          <div class="container w-50">
+
+            <form action="/profile" method="post" enctype="multipart/form-data">
+
+
+              <label for="basic-addon1" class="float-right mt-3 mb-3">لطفا مشخصات خود را وارد نمایید</label>
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">نام و نام خانوادگی </span>
+                </div>
+                <input type="text" name="name" id="name" class="form-control rtl" value="<%- data.name%>"
+                  placeholder="نام و نام خانوادگی">
+              </div>
+
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="desc">معرفی </span>
+                </div>
+                <textarea name="descrption" class="form-control rtl" value=""
+                  placeholder="یه معرفی از خودت داشته باش ..."><%- data.descrption%></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">آواتار</span>
+                </div>
+                <div class="custom-file">
+                  <input name="avatar" type="file" class="custom-file-input" id="avatar" accept="image/*">
+
+                  <label class="custom-file-label" for="inputGroupFile01">فایل خود را انتخاب کنید</label>
+                </div>
+              </div>
+
+              <!-- City -->
+              <%- include('./partials/citys') %>
+              <!-- /City -->
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">زبان </span>
+                </div>
+                <input type="text" name="language" id="lang" class="form-control rtl" 
+                
+                   value="<%- data.language || '' %> " 
+                      
+                  placeholder="زبان هایی که تسلط دارید را وارد نمایید">
+              </div>
+
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">تلفن همراه </span>
+                </div>
+                <input type="text" name="phone" id="phone" class="form-control rtl" value="<%- data.phone %>"
+                  placeholder="تلفن همراه خود را وارد نمایید">
+              </div>
+
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">فعالیت های مورد علاقه </span>
+                </div>
+                <input type="text" id="interest1" name="interest" value="<%- data.interest[0] %>"
+                  class="form-control text-center" placeholder="">
+                <input type="text" id="interest2" name="interest" value="<%- data.interest[1] %>"
+                  class="form-control text-center" placeholder="">
+                <input type="text" id="interest3" name="interest" value="<%- data.interest[2] %>"
+                  class="form-control text-center" placeholder="">
+                <input type="text" id="interest4" name="interest" value="<%- data.interest[3] %>"
+                  class="form-control text-center" placeholder="">
+              </div>
+
+              <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">سوابق فعالیت </span>
+                </div>
+                <input type="text" id="resume1" name="resume" value="<%- data.resume[0] %>"
+                  class="form-control text-center" placeholder="">
+                <input type="text" id="resume2" name="resume" value="<%- data.resume[1] %>"
+                  class="form-control  text-center" placeholder="">
+                <input type="text" id="resume3" name="resume" value="<%- data.resume[2] %>"
+                  class="form-control  text-center" placeholder="">
+                <input type="text" id="resume4" name="resume" value="<%- data.resume[3] %>"
+                  class="form-control  text-center" placeholder="">
+              </div>
+
+              <label for="basic-addon3" class="float-right mt-3 mb-3">لطفا آدرس شبکه های اجتماعی خود را وارد
+                نمایید</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">instagram.com/</span>
+                </div>
+                <input name="instagram" type="text" class="form-control text-center" id="instagram"
+                  value="<%- data.instagram%>" placeholder="نام کاربری خود در اینستاگرام را وارد نمایید">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">twitter.com/</span>
+                </div>
+                <input name="github" type="text" class="form-control text-center" id="twitter"
+                  value="<%- data.twitter%>" placeholder="نام کاربری خود در توییتر را وارد نمایید">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">github.com/</span>
+                </div>
+                <input name="twitter" type="text" class="form-control text-center" id="github" value="<%- data.github%>"
+                  placeholder="نام کاربری خود در گیت هاب را وارد نمایید">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">وبسایت شخصی</span>
+                </div>
+                <input name="website" type="text" class="form-control text-center" id="website"
+                  value="<%- data.website%>" placeholder="وب سایت شخصی خود را وارد نمایید">
+              </div>
+
+
+              <!-- Skills -->
+              <label for="skills" class="float-right mt-3 mb-3">لطفا پنج مهارت اصلی خود و میزان مهارت خود بین 1 تا
+                100 وارد نمایید</label>
+
+              <% for( let i=0; i < 5; i++ ) { %>
+
+              <% const name=['اول','دوم','سوم','چهارم','پنجم'] %>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">مهارت <%- name[i] %> </span>
+                </div>
+                <input name="skills" type="text" value="<%- data.skills[i]%>" class="form-control" id="skills">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">میزان مهارت</span>
+                </div>
+                <input name="skillpersent" type="number" value="<%- data.skillpersent[i]%>" class="form-control"
+                  id="skills" min="0" max="100">
+              </div>
+
+              <% } %>
+              <!-- /Skills -->
+
+
+
+              <div class="float-right">
+                <button class="btn btn-dark text-white border-dark mb-3" type="submit">ثبت تغییرات</button>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+        <!-- / Info -->
+
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<!-- / Content -->
+</div>

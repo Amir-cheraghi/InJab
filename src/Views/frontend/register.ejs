@@ -1,0 +1,49 @@
+<main class="form-signin">
+<form method="POST" action="/register">
+  <img class="mb-4" src="/images/frontend/icon/logo.svg" alt="" width="72" height="57">
+  <h1 class="h3 mb-3 fw-normal text-right">اطلاعات خود را وارد نمایید</h1>
+
+  <!-- Message -->
+  <%- include('./partials/message')  %> 
+  <!--/Message  -->
+  
+
+  <div class="form-floating">
+    <input type="text" name="name" class="form-control" id="name">
+    <label for="name">نام و نام خانوادگی</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="email" name="email" class="form-control" id="email">
+    <label for="email">آدرس ایمیل</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="password" name="password" class="form-control" id="password">
+    <label for="password">رمزعبور</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="password" name="repassword" class="form-control form-signin-mg" id="Repassword">
+    <label for="Repassword">تکرار رمز عبور</label>
+  </div>
+
+  <div class="form-floating">
+    <select name="role" class="form-control form-signin p-0 custom-select text-center" id="role" style="border-radius: 0;">
+      <option value="کارجو">کارجو</option>
+      <option value="کارفرما">کارفرما</option>
+      </select>
+  </div>
+
+
+  <div class="checkbox mb-3 form-signin-mg text-right pt-3">
+    <input type="checkbox" name="remember" value="remember-me" required>
+    <label>
+      با <a href="#" class="text-decoration-none text-black-50">قوانین</a> موافق هستم  
+    </label>
+  </div>
+
+
+  <button class="w-100 btn btn-lg btn-dark" type="submit">عضویت</button>
+</form>
+</main>

@@ -1,0 +1,55 @@
+
+<div class="container py-5" id="icon-grid">
+  <h2 class="pb-2 border-bottom  text-right rtl">متقاضی ها</h2>
+
+
+  <% data.forEach(item => { %>
+    <div class="row row-cols-xxl-3 g-5 py-5">
+      <div class="col align-items-start" >
+        <div class="card rounded-pill shadow" style="height: 100px;" >
+          <div class="card-body text-center rtl row-cols-3 d-flex flex-row justify-content-between p-0" >
+  
+            <!-- Avatar -->
+            <a href="/Users/<%- item.id %>"  class="col-2 rounded-pill h-100 d-flex flex-column justify-content-center p-0" style="width: 100px;">
+              <img  class="rounded-pill h-100 w-100" src="<%- item.avatar%>" alt=""></img>
+            </a>
+  
+            <!-- Desc -->
+            <div class="col-10 h-100 d-flex flex-row justify-content-center" style="padding: 0;" >
+  
+              <div class="card-body col-2   align-self-center" ><%- item.name %> </div>
+  
+              <div class="card-body col-7 border-left border-right   align-self-center" ><%- item.descrption || کاربر توضیحاتی ارائه نداده است %> </div>
+  
+              <div class="card-body col-3   align-self-center d-flex justify-content-between h-100 p-0 m-0 gap-0" >
+                <ul class="list-unstyled" style="font-size: 15px;">
+                  <% for( let i = 0; i < item.skills.length; i++ ) { %>
+                    
+                    <% if (i===3) { %>
+                    </ul>
+                      
+                          <ul class="list-unstyled"style="font-size: 15px;">
+                    <% } %>
+                      
+                          <li class="mb-2">
+                            <a class="text-decoration-none text-body"><%- item.skills[i] %> </a>
+                          </li>
+        
+                  <% } %>
+              </div>
+
+               <!-- View -->
+            <a href="/Users/<%- item.id %> " class="col-2 rounded-pill h-100 d-flex flex-column justify-content-center bg-primary text-light text-decoration-none"  style="width: 100px; cursor: pointer;">مشاهده</a>
+            </div>
+  
+           
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  <% }) %>
+
+  
+</div>

@@ -1,0 +1,218 @@
+<form action="/newpost" method="post">
+  <div class="container">
+
+    <!-- Message -->
+    <%- include('./partials/message') %>
+    <!-- /Message -->
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col h-100">
+        <div class="card my-4 h-75 shadow ">
+          <h5 class="card-header text-right rtl">
+            <input type="text" name="title" id="title" class="form-control rtl" placeholder="عنوان آگهی">
+          </h5>
+
+          <div class="card-body h-100 text-right rtl">
+            <textarea name="description" class="form-control rtl h-100" placeholder="متن آگهی را وارد نمایید"
+              style="resize: none;"></textarea>
+          </div>
+
+
+          <!-- Options -->
+          <div class="h-50 text-right rtl" id="container">
+            <!-- City -->
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">استان</label>
+                </div>
+
+                <select name="city" class="custom-select rtl" id="city">
+                  <option selected disabled>لطفا شهر خود را انتخاب کنید : </option>
+
+                  <% citys.forEach(el=> { %>
+                  <option value="<%- el %>">
+                    <%- el %>
+                  </option>
+                  <% }) %>
+
+                </select>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">دسته بندی</label>
+                </div>
+                <select name="category" class="custom-select rtl" id="category">
+                  <option selected disabled>لطفا دستبه بندی خود را انتخاب کنید : </option>
+
+                  <% jobs.forEach(el=> { %>
+                  <option value="<%- el %>">
+                    <%- el %>
+                  </option>
+                  <% }) %>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">جنسیت</label>
+                </div>
+                <select name="gender" class="custom-select rtl" id="gender">
+                  <option selected disabled>لطفا جنسیت مورد نیاز را انتخاب کنید : </option>
+
+                  <% gender.forEach(el=> { %>
+                  <option value="<%- el %>">
+                    <%- el %>
+                  </option>
+                  <% }) %>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">ساعت کاری</label>
+                </div>
+                <select name="time" class="custom-select rtl" id="time">
+                  <option selected disabled>لطفا ساعت کاری مورد نیاز را انتخاب کنید : </option>
+
+                  <% time.forEach(el=> { %>
+                  <option value="<%- el %>">
+                    <%- el %>
+                  </option>
+                  <% }) %>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">مدرک</label>
+                </div>
+                <select name="degree" class="custom-select rtl" id="degree">
+                  <option selected disabled>لطفا مدرک تحصیلی مورد نیاز را انتخاب کنید : </option>
+                  
+                  <% degree.forEach(el=> { %>
+                  <option value="<%- el %>">
+                    <%- el %>
+                  </option>
+                  <% }) %>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="w-50 mr-3">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="inputGroupSelect01">حقوق</label>
+                </div>
+                <select name="salary" class="custom-select rtl" id="salary">
+                  <option selected disabled> : حقوق مورد نظر را انتخاب کنید</option>
+                  <option value="توافقی " id="option-1" >توافقی</option>
+                  <option value="enter" id="option-2">وارد کردن حقوق</option>
+                </select>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+          <h5 class="card-footer text-right rtl">
+            <button class="btn btn-dark text-white border-dark" type="submit">ثبت آگهی</button>
+          </h5>
+
+        </div>
+      </div>
+
+
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+        <!-- Categories Widget -->
+        <div class="card my-4 rtl text-right shadow">
+          <h5 class="card-header">مهارت های مورد نیاز</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill1" class="form-control rtl" placeholder="مهارت اول">
+                  </li>
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill3" class="form-control rtl" placeholder="مهارت سوم">
+                  </li>
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill5" class="form-control rtl" placeholder="مهارت پنجم">
+                  </li>
+
+                </ul>
+
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill2" class="form-control rtl" placeholder="مهارت دوم">
+                  </li>
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill4" class="form-control rtl" placeholder="مهارت چهارم">
+                  </li>
+
+                  <li class="mb-1">
+                    <input type="text" name="skills" id="skill6" class="form-control rtl" placeholder="مهارت ششم">
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4 shadow">
+          <h5 class="card-header text-right">درباره شرکت</h5>
+          <div class="card-body text-right rtl">
+            <textarea name="company" class="form-control rtl h-100" placeholder="شرکت خود را معرفی کنید"></textarea>
+          </div>
+        </div>
+
+        <!-- Wanted -->
+        <div class="card my-4 shadow">
+          <h5 class="card-header text-right rtl">آدرس</h5>
+          <div class="card-body text-right rtl">
+            <textarea name="address" class="form-control rtl h-100"
+              placeholder="آدرس شرکت خود را وارد نمایید"></textarea>
+          </div>
+
+        </div>
+        <!-- /Wanted -->
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+</form>
+<script src="/js/newpost.js"></script>

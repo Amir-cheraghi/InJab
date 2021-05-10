@@ -1,0 +1,84 @@
+<div class="container">
+  <% if (message.length!=0) { %>
+    <div class="container w-50 text-center">
+    <% message.forEach(item => { %>
+        <div class="alert <%- alert%> alert-dismissible">
+          <%= item %> 
+        </div>
+    <% }) %>
+  </div>
+  <% } %>
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col">
+      <div class="card my-4 h-75">
+        <h5 class="card-header text-right rtl"><%- data.postTitle %> </h5>
+        <div class="card-body text-right rtl"><%- data.postDescription %> </div>
+        <div class="card-footer text-left rtl text-muted h6">
+          <div class="text-right">
+            <button type="button" class="btn btn-light text-muted h6" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<%- data.address %> ">آدرس</button>
+          </div>
+          <%- data.createdAt %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+      <!-- Categories Widget -->
+      <div class="card my-4 rtl text-right">
+        <h5 class="card-header">مهارت های مورد نیاز</h5>
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+            <% for( let i = 0; i < data.postSkills.length; i++ ) { %>
+              
+              <% if (i===3) { %>
+              </ul>
+                </div>
+                  <div class="col-lg-6">
+                    <ul class="list-unstyled mb-0">
+              <% } %>
+                
+                    <li class="mb-1">
+                      <a class="text-decoration-none text-body"><%- data.postSkills[i] %> </a>
+                    </li>
+  
+            <% } %>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Side Widget -->
+      <div class="card my-4">
+        <h5 class="card-header text-right">درباره شرکت</h5>
+        <div class="card-body text-right rtl">
+          <%- data.postCompany %> 
+        </div>
+      </div>
+
+      <!-- Wanted -->
+      <div class="card my-4">
+        <h5 class="card-header text-right rtl">افراد متقاضی</h5>
+        <div class="card-body text-right rtl"></div>
+        <h5 class="card-footer text-right">
+        <% if (login) { %>
+          <form action="/post" method="post">
+            <input type="text" name="id" id="id" value="<%- data._id %>" hidden>
+            <button type="submit" class="btn btn-dark text-light h6">ثبت درخواست</button>
+          </form>
+          <% } %>
+        </h5>
+      </div>
+      <!-- /Wanted -->
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+</div>

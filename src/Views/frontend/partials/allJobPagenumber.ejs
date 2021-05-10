@@ -1,0 +1,119 @@
+<% if (maxPage>1) { %>
+    <form action="/jobs" method="GET" class="align-self-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+    
+                <% if (hasPrePage) { %>
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- prePage %>" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+                <% if (hasNextPage) { %>
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- prePage %>" aria-label="Previous">
+                        <span aria-hidden="true"><%- prePage %></span>
+                    </button>
+                </li>
+    
+                <% } else { %>
+    
+                <% if (maxPage === 2) { %>
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- prePage%>" aria-label="Previous">
+                        <span aria-hidden="true"><%- prePage %></span>
+                    </button>
+                </li>
+                <% } else { %>
+    
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- prePage-1%>" aria-label="Previous">
+                        <span aria-hidden="true"><%- prePage-1 %></span>
+                    </button>
+                </li>
+                <% } %>
+    
+                <% } %>
+                
+        
+                    <% } else { %>
+                <li class="page-item"><button type="submit" name="page" class="page-link bg-secondary text-light"
+                        value="<%- activePage %>">
+                        <%- activePage %>
+                    </button></li>
+    
+                <% } %>
+    
+    
+    
+                <% if (maxPage > 2) { %>
+                <% if (hasNextPage && !hasPrePage) { %>
+                <li class="page-item"><button type="submit" name="page" class="page-link" value="<%- nextPage %>">
+                        <%- nextPage %>
+                    </button></li>
+                <% } %>
+    
+                <% if (hasNextPage && hasPrePage) { %>
+                <li class="page-item"><button type="submit" name="page" class="page-link bg-secondary text-light"
+                        value="<%- activePage %>">
+                        <%- activePage %>
+                    </button></li>
+                <% } %>
+    
+                <% if (hasPrePage && !hasNextPage) { %>
+                <li class="page-item"><button type="submit" name="page" class="page-link" value="<%- prePage %>">
+                        <%- prePage %>
+                    </button></li>
+                <% } %>
+    
+                <% } %>
+    
+    
+    
+    
+    
+                <% if ( hasNextPage ) { %>
+    
+                <% if (hasPrePage) { %>
+                <li class="page-item"><button type="submit" name="page" class="page-link" value="<%- nextPage %>">
+                        <%- nextPage %>
+                    </button></li>
+                <% } else { %>
+    
+                <% if (maxPage === 2) { %>
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- nextPage%>" aria-label="Previous">
+                        <span aria-hidden="true"><%- nextPage %></span>
+                    </button>
+                </li>
+                <% } else { %>
+    
+                <li class="page-item">
+                    <button type="submit" name="page" class="page-link" value="<%- nextPage+1%>" aria-label="Previous">
+                        <span aria-hidden="true"><%- nextPage+1 %></span>
+                    </button>
+                </li>
+                <% } %>
+    
+                <% } %>
+                    
+                    <li class="page-item">
+                        <button type="submit" name="page" class="page-link" value="<%- nextPage %>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </button>
+                </li>
+                <% } else { %>
+    
+                <li class="page-item"><button type="submit" name="page" class="page-link bg-secondary text-light"
+                        value="<%- activePage %>">
+                        <%- activePage %>
+                    </button></li>
+                <% } %>
+    
+    
+    
+    
+            </ul>
+        </nav>
+    </form>
+    <% } %>

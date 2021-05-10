@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.rtl.css" />
+  <link rel="stylesheet" href="/css/font.css" />
+  <link rel="stylesheet" href="/css/singin.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+</head>
+
+<body class="d-flex flex-column h-100" id="body">
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <!-- Login -->
+        <% if (!login) { %>
+          <div class="text-end">
+            <button type="button" class="btn btn-light me-2">
+              <a class="text-decoration-none text-black-50" href="/login">ورود</a>
+            </button>
+            <button type="button" class="btn btn-warning ">
+              <a class="text-decoration-none text-black-50 " href="/register">عضویت</a>
+            </button>
+          </div>
+          <% } else { %>
+
+            <div class="dropdown">
+              <button id="dropdown" class="btn btn-secondary dropdown-toggle rtl" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><%- name%></button>
+              <div class="dropdown-menu " aria-labelledby="dropdown">
+                <a class="dropdown-item" href="/profile/">پنل کاربری</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item " href="/newpost">ایجاد پست</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item " href="/myposts">پست های من</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item " href="/logout">خروج</a>
+              </div>
+            </div>
+            <% } %>
+              <!-- /Login -->
+
+
+
+              <!-- Search -->
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 rtl d-flex flex-row gap-2" action="/jobs"
+                method="get">
+                <div>
+                  <button type="submit" id="searchButton" class="form-control form-control-dark w-100">جستجو</button>
+                </div>
+
+                <div id="searchArea" class="d-flex flex-column position-relative">
+
+                  <input type="search" id="searchInput" name="text[search]" class="form-control form-control-dark w-100"
+                    placeholder="جستجو ..." />
+                  
+
+
+                </div>
+
+              </form>
+              <!-- /Search -->
+
+              <!-- Menu -->
+              <nav class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 fill">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2">درباره ما</a></li>
+                <li><a href="#" class="nav-link px-2">قوانین</a></li>
+                <li><a href="/jobs" class="nav-link px-2 ">آگهی ها</a></li>
+                <% if (login) { %>
+                  <li><a href="/profile" class="nav-link px-2 ">پروفایل</a></li>
+                  <% } else { %>
+                  <li><a href="/features" class="nav-link px-2 ">ویژگی ها</a></li>
+                <% } %>
+                 
+                <li><a href="/" class="nav-link px-2 ">خانه</a></li>
+              </ul>
+              </nav>
+              <!-- /Menu -->
+              <!-- Logo -->
+              <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              </a>
+              <!-- /Logo -->
+
+
+
+
+      </div>
+    </div>
+  </header>
+  <div class="container d-flex flex-row justify-content-center w-100  text-center mt-3" id="message"></div>

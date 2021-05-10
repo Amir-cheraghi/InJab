@@ -1,0 +1,142 @@
+  <div class="accordion text-center" id="filter">
+
+
+  <div class="card">
+    <div class="card-header" id="categoryTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#category" aria-expanded="true" aria-controls="category">
+          دسته بندی
+        </button>
+      </h2>
+    </div>
+
+    <div id="category" class="collapse show" aria-labelledby="categoryTitle" data-parent="#filter">
+
+
+      <% jobs.forEach((el,index) => { %>
+        <div class="form-check text-right m-2">
+          <input class="form-check-input" style="cursor: pointer;" type="checkbox" name="category" value="<%- el %>" id="job-<%-index%>">
+          <label class="form-check-label" style="cursor: pointer;" for="job-<%-index%>"><%- el %></label>
+        </div>
+      <% }) %>
+             
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="cityTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark " type="button" data-toggle="collapse" data-target="#city" aria-expanded="false" aria-controls="city">
+          استان
+        </button>
+      </h2>
+    </div>
+
+    <div id="city" class="collapse" aria-labelledby="cityTitle" data-parent="#filter">
+      
+      <% citys.forEach((el,index) => { %>
+        <div class="form-check text-right m-2">
+          <input class="form-check-input" style="cursor: pointer;" type="checkbox" name="city" value="<%- el %>" id="city-<%-index%>">
+          <label class="form-check-label" style="cursor: pointer;" for="city-<%-index%>"><%- el %></label>
+        </div>
+      <% }) %>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="timeTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark collapsed" type="button" data-toggle="collapse" data-target="#time" aria-expanded="false" aria-controls="time">
+           ساعت کاری
+        </button>
+      </h2>
+    </div>
+
+    <div id="time" class="collapse" aria-labelledby="timeTitle" data-parent="#filter">
+
+
+      <% time.forEach((el,index) => { %>
+        <div class="form-check text-right m-2">
+          <input class="form-check-input" style="cursor: pointer;" type="checkbox" name="time" value="<%- el %>" id="time-<%-index%>">
+          <label class="form-check-label" style="cursor: pointer;" for="time-<%-index%>"><%- el %></label>
+        </div>
+      <% }) %>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="salaryTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark collapsed" type="button" data-toggle="collapse" data-target="#salary" aria-expanded="false" aria-controls="salary">
+           حقوق
+        </button>
+      </h2>
+    </div>
+
+    <div id="salary" class="collapse text-right rtl pt-3" aria-labelledby="salaryTitle" data-parent="#filter">
+
+      <label id="minimumlebel" for="Minimum">حداقل : 500,000 تومان</label>
+      <input type="range" class="custom-range" name="salary[gte]" min="500000" max="15000000" step="500000" value="0" id="minimum">
+
+      <label id="maximumlebel" for="Maximum">حداکثر : 15,000,000 تومان</label>
+      <input type="range" class="custom-range" name="salary[lte]" min="500000" max="15000000" step="500000" value="15000000" id="maximum">
+      
+    </div>
+
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="genderTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark collapsed" type="button" data-toggle="collapse" data-target="#gender" aria-expanded="false" aria-controls="gender">
+           جنسیت
+        </button>
+      </h2>
+    </div>
+
+    <div id="gender" class="collapse" aria-labelledby="genderTitle" data-parent="#filter">
+
+      <% gender.forEach((el,index) => { %>
+        <div class="form-check text-right m-2">
+          <input class="form-check-input" style="cursor: pointer;" type="checkbox" name="gender" value="<%- el %>" id="gender-<%-index%>">
+          <label class="form-check-label" style="cursor: pointer;" for="gender-<%-index%>"><%- el %></label>
+        </div>
+      <% }) %>
+
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="degreeTitle">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-center text-decoration-none text-dark collapsed" type="button" data-toggle="collapse" data-target="#degree" aria-expanded="false" aria-controls="degree">
+           مدرک
+        </button>
+      </h2>
+    </div>
+
+    <div id="degree" class="collapse" aria-labelledby="degreeTitle" data-parent="#filter">
+
+      <% degree.forEach((el,index) => { %>
+        <div class="form-check text-right m-2">
+          <input class="form-check-input" style="cursor: pointer;" type="checkbox" name="degree" value="<%- el %>" id="degree-<%-index%>">
+          <label class="form-check-label" style="cursor: pointer;" for="degree-<%-index%>"><%- el %></label>
+        </div>
+      <% }) %>
+      
+    </div>
+  </div>
+
+
+</div>
+<script src="/js/filter.js"></script>
+

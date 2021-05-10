@@ -1,0 +1,83 @@
+<div class="container">
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col">
+      <div class="card my-4 h-75 shadow">
+        <h5 class="card-header text-right rtl"><%- data.title %> </h5>
+        <div class="card-body text-right rtl"><textarea class="h-100 w-100 border-0" style="resize: none; outline: none; cursor: default;" readonly><%- data.description %></textarea> </div>
+        <div class="card-footer text-left rtl text-muted h6">
+          <div class="d-flex flex-row justify-content-between">
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="حقوق" data-toggle="popover" data-placement="bottom" data-content="<%- data.salary %> ">حقوق</button>
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="آدرس" data-toggle="popover" data-placement="bottom" data-content="<%- data.address %> ">آدرس</button>
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="جنسیت" data-toggle="popover" data-placement="bottom" data-content="<%- data.gender %> ">جنسیت</button>
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="ساعت کاری" data-toggle="popover" data-placement="bottom" data-content="<%- data.time %> ">ساعت کاری</button>
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="مدرک" data-toggle="popover" data-placement="bottom" data-content="<%- data.degree %> ">مدرک</button>
+            <button type="button" class="btn  text-secondary  h6" data-container="body" data-trigger="focus" title="مدرک" data-toggle="popover" data-placement="bottom" data-content="<%- data.city %> ">شهر</button>
+
+
+           
+          </div>
+          <div class="border-top text-right pt-3"  style="font-size: 12px;"> <%- date%></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+      <!-- Categories Widget -->
+      <div class="card my-4 rtl text-right shadow">
+        <h5 class="card-header">مهارت های مورد نیاز</h5>
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+            <% for( let i = 0; i < data.skills.length; i++ ) { %>
+              
+              <% if (i===3) { %>
+              </ul>
+                </div>
+                  <div class="col-lg-6">
+                    <ul class="list-unstyled mb-0">
+              <% } %>
+                
+                    <li class="mb-1">
+                      <a class="text-decoration-none text-body"><%- data.skills[i] %> </a>
+                    </li>
+  
+            <% } %>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Side Widget -->
+      <div class="card my-4 shadow">
+        <h5 class="card-header text-right">درباره شرکت</h5>
+        <div class="card-body text-right rtl">
+          <%- data.company %> 
+        </div>
+      </div>
+
+      <!-- Applicant -->
+      <div class="card my-4 shadow">
+        <h5 class="card-header text-right rtl">افراد متقاضی</h5>
+        <div class="card-body text-right rtl" id="applicantCount"> <%- data.Applicanted.length %> نفر برای این آگهی درخواست داده اند </div>
+        <h5 class="card-footer text-right">
+        <% if (login) { %>
+            <button type="submit" id="applicant" class="btn btn-dark text-light h6">ثبت درخواست</button>
+          <% } %>
+        </h5>
+      </div>
+      <!-- /Applicant -->
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+</div>
+
+<script src="/js/applicant.js"></script>

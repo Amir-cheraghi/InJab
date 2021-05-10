@@ -1,0 +1,32 @@
+<main class="form-signin h-100">
+<form method="POST" action="/login">
+  <img class="mb-4" src="/images/frontend/icon/logo.svg" alt="" width="72" height="57">
+  <h1 class="h3 mb-3 fw-normal text-right">لطفا وارد شوید</h1>
+
+  <!-- Message -->
+  <%- include('./partials/message')  %> 
+  <!-- Message -->
+
+  <div class="form-floating">
+    <input type="email" name="email" class="form-control" id="emai">
+    <label for="floatingInput">آدرس ایمیل</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" name="password" class="form-control" id="password">
+    <label for="floatingPassword">رمز عبور</label>
+  </div>
+  
+
+  <div class="checkbox form-signin-mg text-right pt-3">
+    <input type="checkbox" name="remember" value="remember-me" required>
+    <label>
+      با <a href="#" class="text-decoration-none text-black-50">قوانین</a> موافق هستم  
+    </label>
+
+  <div class="checkbox mb-2 form-signin-mg text-right ">
+         <a href="/resetpassword" class="">رمز عبور خود را فراموش کرده اید ؟</a>
+  </div>
+    
+  <button class="w-100 btn btn-lg btn-dark " type="submit">ورود</button>
+</form>
+</main>
