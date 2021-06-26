@@ -3,22 +3,20 @@ const paginate = require('mongoose-paginate-v2')
 
 const postSchema = new mongoose.Schema(
   {
-    username: {type : String},
-    name: {type : String},
     publisherId : {type : String},
-    title: {type : String , trim : true},
-    description: {type : String},
+    title: {type : String , trim : true , required : true},
+    description: {type : String , required : true},
     category : {type : String , required : true},
-    city : {type : String , required : true},
-    time : {type : String , required : true},
-    gender : {type : String , required : true},
-    degree :{type : String , required : true},
-    skills: {type : Array},
-    company: {type : String},
-    salary: {type : String},
-    address: {type : String},
+    city : {type : String , default : 'مهم نیست'},
+    time : {type : String , default : 'مهم نیست'},
+    gender : {type : String , default : 'مهم نیست'},
+    degree :{type : String , default : 'مهم نیست'},
+    skills: {type : Array , required : true},
+    company: {type : String , default : 'توضیحاتی ارائه نشده است'},
+    salary: {type : String , default : 'توافقی'},
+    address: {type : String , required : true},
     Applicanted : {type : Array , default : []},
-    publisherId : {type : String , required:[true , 'We Need Publisher Id'] , default:'6079d1ebc87aaa0cdc6acf84'}
+    publisherId : {type : String , required:[true , 'We Need Publisher Id']}
   },
   { timestamps: true }
 );

@@ -46,7 +46,7 @@ router.get('/MyPosts/:id',authController.checkLogin, authController.checkPermiss
 //CRUD Post
 router
     .get('/newpost',authController.checkLogin, postController.showCreatePost) //Add Validator
-    .post('/newpost',authController.checkLogin, postController.createPost)
+    .post('/newpost',authController.checkLogin,formValid.newPostValid(),formValid.newPostValidation, postController.createPost) //NewPost
     .delete('/MyPosts/:id',authController.checkLogin,authController.checkPermission, postController.deletePost)
     .put('/MyPosts/:id',authController.checkLogin,authController.checkPermission, postController.showEdit) //Only For Show Edit
     .patch('/MyPosts/:id',authController.checkLogin,authController.checkPermission, postController.editPost) //add Validator

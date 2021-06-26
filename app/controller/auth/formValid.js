@@ -75,6 +75,50 @@ module.exports = new (class formValid {
     ];
   }
 
+  newPostValid(){
+   return [
+      check("title")
+      .notEmpty()
+      .withMessage("عنوان آگهی نمیتواند خالی باشد"),
+      check("description")
+      .notEmpty()
+      .withMessage(" توضیحاتی برای آگهی خود بنویسید")
+      .isLength({min : 32})
+      .withMessage("توضیحات آگهی کوتاه هستند"),
+      check('city')
+      .notEmpty()
+      .withMessage(' شهر را مشخص کنید '),
+      check("category")
+      .notEmpty()
+      .withMessage(" دسته بندی مرتبط با اگهی را انتخاب کنید")
+      .custom((value)=>{return value!=='لطفا دستبه بندی خود را انتخاب کنید : '})
+      .withMessage(" دسته بندی مرتبط با اگهی را انتخاب کنید"),
+      check("gender")
+      .notEmpty()
+      .withMessage("جنسیت آگهی نمیتواند خالی باشد"),
+      check("degree")
+      .notEmpty()
+      .withMessage("مدرک آگهی نمیتواند خالی باشد"),
+      check("salary")
+      .notEmpty()
+      .withMessage("دستمزد آگهی نمیتواند خالی باشد")
+      .custom(value=> {return value!==' : حقوق مورد نظر را انتخاب کنید'})
+      .withMessage('دستمزد آگهی نمیتواند خالی باشد')
+      ,
+      check('address')
+      .notEmpty()
+      .withMessage(' آدرس شرکت خود را وارد نمایید')
+      .isLength({min:32})
+      .withMessage("آدرس بسیار کوتاه است"),
+      check('skills')
+      .isArray({min:3 , max:6})
+      .withMessage(' حداقل 3 و حداکثر 6 مهارت را مشخص کنید ')
+      .notEmpty()
+      .withMessage('حقوق مورد نظر را مشخص کنید')
+      
+      
+    ]
+  }
 
 
   loginValidation(req, res, next) {
@@ -117,4 +161,13 @@ module.exports = new (class formValid {
       res.redirect(req.headers.referer);
     } else next();
   }
+
+  newPostValidation(req, res, next){
+    if(validationResult(req).array() !=0){
+      req.flash("message",validationResult(req).array().map(item=>item.msg))
+      req.flash("alert", "alert-danger");
+      res.redirect('/newpost')
+    }else next();
+  }
+
 })();
