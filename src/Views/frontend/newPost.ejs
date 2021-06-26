@@ -1,9 +1,10 @@
-<form action="/newpost" method="post">
-  <div class="container">
-
     <!-- Message -->
     <%- include('./partials/message') %>
     <!-- /Message -->
+
+<form action="/newpost" method="post">
+  <div class="container">
+
 
     <div class="row">
 
@@ -31,7 +32,7 @@
                 </div>
 
                 <select name="city" class="custom-select rtl" id="city">
-                  <option selected disabled>لطفا شهر خود را انتخاب کنید : </option>
+                  <option selected>مهم نیست</option>
 
                   <% citys.forEach(el=> { %>
                   <option value="<%- el %>">
@@ -50,7 +51,7 @@
                   <label class="input-group-text" for="inputGroupSelect01">دسته بندی</label>
                 </div>
                 <select name="category" class="custom-select rtl" id="category">
-                  <option selected disabled>لطفا دستبه بندی خود را انتخاب کنید : </option>
+                  <option selected disabled>لطفا دسته بندی خود را انتخاب کنید : </option>
 
                   <% jobs.forEach(el=> { %>
                   <option value="<%- el %>">
@@ -68,7 +69,7 @@
                   <label class="input-group-text" for="inputGroupSelect01">جنسیت</label>
                 </div>
                 <select name="gender" class="custom-select rtl" id="gender">
-                  <option selected disabled>لطفا جنسیت مورد نیاز را انتخاب کنید : </option>
+                  <option selected>مهم نیست</option>
 
                   <% gender.forEach(el=> { %>
                   <option value="<%- el %>">
@@ -86,7 +87,7 @@
                   <label class="input-group-text" for="inputGroupSelect01">ساعت کاری</label>
                 </div>
                 <select name="time" class="custom-select rtl" id="time">
-                  <option selected disabled>لطفا ساعت کاری مورد نیاز را انتخاب کنید : </option>
+                  <option selected>مهم نیست</option>
 
                   <% time.forEach(el=> { %>
                   <option value="<%- el %>">
@@ -104,7 +105,7 @@
                   <label class="input-group-text" for="inputGroupSelect01">مدرک</label>
                 </div>
                 <select name="degree" class="custom-select rtl" id="degree">
-                  <option selected disabled>لطفا مدرک تحصیلی مورد نیاز را انتخاب کنید : </option>
+                  <option selected>مهم نیست</option>
                   
                   <% degree.forEach(el=> { %>
                   <option value="<%- el %>">

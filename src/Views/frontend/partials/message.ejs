@@ -1,9 +1,13 @@
 <% if (message.length!=0) { %>
-  <div class="container w-100 text-center">
-  <% message.forEach(item => { %>
-      <div class="alert shadow <%- alert%> alert-dismissible text-center">
-       <%= item %> 
+  <div class="container w-25 text-center">
+    <div class="alert shadow <%- alert%> alert-dismissible text-right rtl" style="font-size: 14px;">
+      
+      <ul>
+        <% message.forEach(item => { %>
+        <li class="rtl" style="font-size: 12px;"><%= item %></li>
+        <% }) %>
+
+      </ul>
       </div>
-  <% }) %>
 </div>
 <% } %>
